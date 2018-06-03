@@ -45,11 +45,11 @@ body {
 
 button {
   margin-left: 10px;
+  border: 1px solid black;
+
+  
 }
- 
-button :active {
-  background-color: darkgrey;
-}
+
 
 li {
   list-style-type: none; 
@@ -61,6 +61,7 @@ li {
 
  li :hover {
    background-color: #ffc98a;
+   
  }
 
 
