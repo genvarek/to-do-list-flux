@@ -1,15 +1,38 @@
-import React from 'react';
+import React from 'react'
+import '../index.css'
 
 
 function AppView(props) {
   return (
     <div>
+      <Footer {...props} />
       <Header {...props} />
       <Main   {...props} />
-      <Footer {...props} />
+      
     </div>
   );
 }
+
+export function Footer(props) {
+
+
+  return (
+    <div>
+    <footer id="footer">
+      <div>
+        <button id="btn-all" onClick={() => props.onGetTodos()}> 
+          Показать планы
+        </button>
+       
+      </div>
+      <div id="items">
+      </div>
+    </footer>
+    </div>
+  );
+}
+
+export default AppView;
 
 export function Header(props) {
   let input
@@ -17,7 +40,7 @@ export function Header(props) {
   return (
     <div>
       <header id="header">
-      <h1>To do:</h1>
+      <h1>Планы:</h1>
       <form onSubmit={function(e){
           e.preventDefault()
           props.onCreateTodo(input.value)
@@ -29,7 +52,7 @@ export function Header(props) {
           }}
           />
            <button id="items" type="submit" >
-          ADD TODO
+          Добавить
         </button>
       </form>
     </header>
@@ -51,7 +74,7 @@ export function Main(props) {
                   e.preventDefault()
                   props.onDeleteTodo(todo.id)
                 }}>
-                {'X'}
+                Удалить
               </button>
             </li>
           )
@@ -63,23 +86,3 @@ export function Main(props) {
   );
 }
 
-export function Footer(props) {
-
-
-  return (
-    <div>
-    <footer id="footer">
-      <div>
-        <button id="btn-all" onClick={() => props.onGetTodos()}> 
-          GET TODOS
-        </button>
-       
-      </div>
-      <div id="items">
-      </div>
-    </footer>
-    </div>
-  );
-}
-
-export default AppView;
